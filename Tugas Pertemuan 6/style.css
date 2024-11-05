@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box; /* Menambahkan box -sizing untuk semua elemen */
+}
+
+body {
+    overflow-y: auto; /* Mengizinkan scroll vertikal saja */
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    font-family: 'Poppins', sans-serif; /* Mengatur font utama */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh; /* Memastikan background memenuhi tampilan secara vertikal */
+    margin: 0;
+    background: linear-gradient(135deg, #0ba500, #eef526); /* Latar belakang */
+}
+
+header {
+    background: linear-gradient(90deg, #4a90e2, #5cb85c); /* Latar belakang header */
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bayangan header */
+    font-family: 'Roboto', sans-serif; /* Mengatur font header */
+}
+
+h1 {
+    font-size: 2.5rem; /* Ukuran font yang lebih besar untuk judul */
+    margin: 0; /* Menghilangkan margin default */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Bayangan teks */
+}
+
+.kontainer-kalkulator {
+    width: 100%; /* Mengatur lebar kontainer menjadi 100% */
+    max-width: 350px; /* Menetapkan lebar maksimum */
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin: 40px auto; /* Jarak sama antara header dan footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px; /* Jarak atas yang lebih besar */
+    font-weight: 600; /* Bold */
+    font-size: 16px; /* Ukuran font yang lebih besar */
+    color: #333; /* Warna teks gelap */
+}
+
+input {
+    width: 100%;
+    padding: 10px; /* Padding yang lebih besar */
+    margin: 10px 0; /* Jarak antara input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px; /* Ukuran font yang lebih besar */
+}
+
+button {
+    width: 100%;
+    padding: 12px; /* Padding yang lebih besar untuk tombol */
+    background-color: #5cb85c; /* Hijau yang segar */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px; /* Jarak atas tombol */
+    transition: background-color 0.3s;
+    font-size: 18px; /* Ukuran font yang lebih besar */
+    font-weight: 700; /* Bold */
+}
+
+button:hover {
+    background-color: #4cae4c; /* Warna hijau lebih gelap saat hover */
+}
+
+#hasil {
+    margin-top: 20px; /* Jarak antara hasil dan input */
+    font-size: 18px; /* Ukuran font yang lebih besar */
+    font-weight: bold;
+    color: #333; /* Warna teks gelap */
+}
+
+/* Styling untuk nilai (pop-up) */
+.nilai {
+    display: none; /* Tersembunyi secara default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang hitam transparan */
+}
+
+.konten-nilai {
+    background-color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tutup-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tutup-button:hover {
+    color: #000 ;
+}
+
+/* Warna background nilai sesuai status */
+.konten-nilai.success {
+    background-color: #d4edda; /* Hijau terang untuk lulus */
+    color: #155724; /* Teks hijau gelap */
+}
+
+.konten-nilai.error {
+    background-color: #f8d7da; /* Merah terang untuk gagal atau kesalahan */
+    color: #721c24; /* Teks merah gelap */
+}
+
+/* Styling untuk Tabel */
+table {
+    width: 100%; /* Lebar penuh dari kontainer */
+    border-collapse: collapse; /* Menggabungkan batas tabel */
+    margin-bottom: 20px; /* Jarak di bawah tabel */
+}
+
+th, td {
+    padding: 10px; /* Padding di dalam sel */
+    text-align: left; /* Rata kiri untuk teks */
+    border: 1px solid #ddd; /* Batas abu-abu muda untuk sel */
+}
+
+th {
+    background-color: #f2f2f2; /* Latar belakang abu-abu muda untuk header */
+    color: #333; /* Warna teks gelap untuk header */
+    font-weight: bold; /* Font tebal untuk header */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Warna baris alternatif */
+}
+
+tr:hover {
+    background-color: #d4d4d4; /* Sorot baris saat hover */
+}
+
+footer {
+    background-color: #2294a5;
+    color: white;
+    text-align: center;
+    padding: 15px; /* Padding yang lebih besar */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto untuk footer */
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .kontainer-kalkulator {
+        max-width: 90%; /* Lebar maksimum untuk tablet dan ponsel */
+        padding: 20px; /* Padding yang lebih kecil */
+    }
+
+    h1 {
+        font-size: 2rem; /* Ukuran font yang lebih kecil untuk judul */
+    }
+
+    button {
+        font-size: 16px; /* Ukuran font yang lebih kecil untuk tombol */
+    }
+
+    #hasil {
+        font-size: 16px; /* Ukuran font yang lebih kecil untuk hasil */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Ukuran font yang lebih kecil untuk ponsel */
+    }
+
+    button {
+        padding: 10px; /* Padding yang lebih kecil untuk tombol */
+    }
+
+    label {
+        font-size: 14px; /* Ukuran font yang lebih kecil untuk label */
+    }
+
+    input {
+        font-size: 14px; /* Ukuran font yang lebih kecil untuk input */
+    }
+}
